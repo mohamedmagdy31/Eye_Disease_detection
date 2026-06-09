@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'diagnosis_screen.dart';
+import 'profile_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -11,6 +12,17 @@ class DashboardScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.teal,
         title: const Text('EyeCare Dashboard', style: TextStyle(color: Colors.white)),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.person, color: Colors.white),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfileScreen()),
+              );
+            },
+          ),
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
