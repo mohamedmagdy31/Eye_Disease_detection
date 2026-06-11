@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'login_screen.dart';
+import 'landing_page.dart'; // استيراد صفحة الهبوط الجديدة
+import 'login_screen.dart';  // استيراد شاشة تسجيل الدخول الأصلية بتاعتكم
 
 void main() {
   runApp(const MyApp());
@@ -10,9 +11,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      // جعل التطبيق يبدأ بصفحة الهبوط (Landing Page) اللي لسه عاملينها
+      home: const LandingPage(),
+
+      // تعريف المسارات (Routes) عشان ننتقل لشاشة اللوجين بسلاسة لما تضغط على الأزرار
+      routes: {
+        '/login': (context) => const LoginScreen(),
+      },
     );
   }
 }
